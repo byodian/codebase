@@ -1,0 +1,29 @@
+{
+  "type": "module",
+  "name": "learning-remix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remix-run/express": "^2.11.1",
+    "@remix-run/node": "^2.11.0",
+    "@remix-run/react": "^2.11.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.19.2",
+    "hono": "^4.5.4",
+    "isbot": "4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remix-hono": "^0.0.16"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.11.0",
+    "vite": "^5.3.5"
+  }
+}

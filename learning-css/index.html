@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Case study</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="flex-container mb-1">
+        <header class="navigation">flex header</header>
+        <div class="main-content">
+            <div class="content-wrap bg-gray">
+                <div class="content">flex main</div>
+            </div>
+            <div class="content-wrap">
+                <div class="content">flex main</div>
+            </div>
+        </div>
+        <aside class="sidebar bg-gray">aside</aside>
+        <footer class="site-footer bg-gray">footer</footer>
+        <div class="site-footer-wrapper">
+            <footer class="site-footer1  bg-gray">
+                footer2
+            </footer>
+        </div>
+    </div>
+
+    <div class="grid-container mb-1">
+        <header class="grid-navigation bg-gray">grid header</header>
+        <div class="grid-main-content">
+            <div class="grid-content-wrap bg-gray">
+                <div class="grid-content">grid main</div>
+            </div>
+            <div class="grid-content-wrap bg-gray">
+                <div class="grid-content">grid main</div>
+            </div>
+        </div>
+        <aside class="grid-sidebar bg-gray">aside</aside>
+        <footer class="grid-site-footer bg-gray">footer</footer>
+    </div>
+
+    <section>
+        <h2 class="mb-1">Subgrid</h2>
+        <!-- subgrid -->
+        <div class="grid-wrapper mb-1">
+            <div class="grid-item">
+                <div class="title">Lorem</div>
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed mag Lorem ipsum dolor
+                    sit amet, consectetur adipisicing elit, sed mag </div>
+                <div class="image">image</div>
+            </div>
+            <div class="grid-item">
+                <div class="title">Lorem</div>
+                <div class="description">Loream</div>
+                <div class="image">image</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section mb-1">
+        <h2>Subgrid Use Case</h2>
+        <div class="featured-section">
+            <div class="card card--featured">
+                <div class="card__content card--featured__content">
+                    This is the same as the previous example, but with an additional section. In the centered block, I
+                    added a list of three mini-articles. I called them “mini” since they only have a title.
+                </div>
+                <div class="card__thumb card--featured__thumb">
+                    <img src="https://fastly.picsum.photos/id/77/450/300.jpg?hmac=V_LawevwSaVitpQs2t7AnuBi84UPSNl1Qp3PmKkmaXc"
+                        alt="">
+                </div>
+            </div>
+            <ul class="list">
+                <li>
+                    <h2>list itme1</h2>
+                </li>
+
+                <li>
+                    <h2>list itme2</h2>
+                </li>
+
+                <li>
+                    <h2>list itme3</h2>
+                </li>
+            </ul>
+
+        </div>
+        <div class="card">
+            <div class="card__content">
+                This is the same as the previous example, but with an additional section. In the centered block, I added
+                a list of three mini-articles. I called them “mini” since they only have a title.
+            </div>
+            <div class="card__thumb">
+                <img src="https://fastly.picsum.photos/id/77/450/300.jpg?hmac=V_LawevwSaVitpQs2t7AnuBi84UPSNl1Qp3PmKkmaXc"
+                    alt="">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="mb-1">Grid auto-fill</h2>
+        <p>
+            <code>
+                .grid-auto-fill {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                }
+
+            </code>
+
+        </p>
+        <div class="grid-auto-fill mb-1">
+            <div class="grid-auto-size-item">item1</div>
+            <div class="grid-auto-size-item">item2</div>
+            <div class="grid-auto-size-item">item3</div>
+            <div class="grid-auto-size-item">item4</div>
+            <div class="grid-auto-size-item">item5</div>
+            <div class="grid-auto-size-item">item6</div>
+            <div class="grid-auto-size-item">item7</div>
+            <div class="grid-auto-size-item">item8</div>
+            <div class="grid-auto-size-item">item9</div>
+            <div class="grid-auto-size-item">item10</div>
+            <div class="grid-auto-size-item">item11</div>
+            <div class="grid-auto-size-item">item12</div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="mb-1">Grid auto-fit</h2>
+        <p>
+            <code>
+                .grid-auto-fit {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                }
+
+            </code>
+
+        </p>
+
+        <div class="grid-auto-fit">
+            <div class="grid-auto-size-item">item1</div>
+            <div class="grid-auto-size-item">item2</div>
+            <div class="grid-auto-size-item">item3</div>
+            <div class="grid-auto-size-item">item4</div>
+            <div class="grid-auto-size-item">item5</div>
+            <div class="grid-auto-size-item">item6</div>
+            <div class="grid-auto-size-item">item7</div>
+            <div class="grid-auto-size-item">item8</div>
+            <div class="grid-auto-size-item">item9</div>
+            <div class="grid-auto-size-item">item10</div>
+            <div class="grid-auto-size-item">item11</div>
+            <div class="grid-auto-size-item">item12</div>
+        </div>
+    </section>  
+</body>
+
+</html>

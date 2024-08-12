@@ -1,0 +1,20 @@
+{
+  "name": "learning-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/preact": "^3.1.0",
+    "@astrojs/rss": "^4.0.2",
+    "astro": "^4.2.1",
+    "preact": "^10.19.3",
+    "typescript": "^5.3.3"
+  }
+}

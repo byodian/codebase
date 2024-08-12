@@ -1,0 +1,264 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-gray {
+    background-color: gray !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.flex-container {
+    --navSize: clamp(160px, 15vw, 200px);
+    --sidebar-width: 300px;
+    --max-content-width: 1300px;
+    --gap: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    @media(min-width: 720px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: start;
+    }
+}
+
+.navigation {
+    position: sticky;
+    top: 0;
+    flex: 0 0 100%;
+
+    @media(min-width: 720px) {
+        flex: initial; /* same as flex: 0 1 auto */
+        width: var(--navSize);
+    }
+}
+
+.main-content {
+    max-width: var(--max-content-width);
+    flex: 1;
+}
+
+.sidebar {
+    display: none;
+    width: var(--sidebar-width);
+
+    @media(min-width: 768px) {
+        display: block;
+    }
+}
+
+/* Using CSS Flexbox */
+.site-footer {
+    flex: 0 0 100%;
+
+    @media(min-width: 720px) {
+        flex: 0 0 calc(100% - var(--navSize) - var(--gap));
+        margin-left: calc(var(--navSize) + var(--gap));
+    }
+}
+
+/* Using Flexbox spacer element */
+/* The HTML should be tweaked a bit. The footer needs an additional wrapper */
+.site-footer-wrapper {
+    display: flex;
+    flex: 0 0 100%;
+    gap: var(--gap);
+
+    @media(min-width: 720px) {
+        &::before {
+            content: "";
+            background-color: pink;
+            width: var(--navSize);
+        }
+    } 
+}
+
+.site-footer1 {
+    flex: 1;
+    max-width: calc(var(--max-content-width) + var(--sidebar-width) + var(--gap));
+}
+
+.grid-container {
+    --cols: 1fr;
+    --gap: 1rem;
+    display: grid;
+    grid-template-columns: var(--cols);
+    gap: var(--gap);
+    max-width: 1800px;
+    align-items: start;
+
+    @media (min-width: 720px) {
+        --cols: 5fr 300px;
+    }
+
+    @media(min-width: 1020px) {
+        /* minmax not work */
+        /* --cols: minmax(160px, 250px) 5fr 300px; */
+        --cols: minmax(min(160px, 10vw), min(200px, 15vw)) minmax(min(1200px, 0px), min(1390px, 100%)) 300px;
+    } 
+}
+
+.grid-navigation {
+    position: sticky;
+    top: 0;
+    grid-column: 1 / -1;
+
+    @media(min-width: 1020px) {
+        grid-column: 1 / 2;
+    }
+}
+
+.grid-main-content { 
+    /* height: 100vh; */
+}
+
+.grid-site-footer {
+    grid-column: 1 / -1;
+
+    @media(min-width: 1020px) {
+        grid-column: 2 / -1;
+    }
+}
+
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid pink;
+}
+
+/* 
+ * When you add `display: grid` to a grid container
+ * only the direct children will become grid items
+ * and can then be placed on the grid you created.
+ * 
+ * Using subgrid for grid-template-columns or grid-template-rows
+ * will let the grid items inherit the values from the parent
+ * */
+
+.grid-item {
+    /* 
+     * We need to pass the grid rows to the inner items 
+     * and this is where CSS subgrid shines
+     * Make sure that each .item spans from row to 1 to 4 
+     */
+    grid-row: 1 / 4;
+
+    /* Creates a grid container */
+    display: grid;
+
+    /* 
+     * Applying subgrid, kinda like telling .item to inheri 
+     * the grid from .grid-wrapper
+     */
+    grid-template-rows: subgrid;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.card__thumb {
+    img {
+        width: 100%; 
+        /* max-width: 100%; */
+    }
+}
+
+/**
+ * CSS Subgrid can be inherit
+ */
+.featured-section {
+    grid-column: 2 / 5;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.card--featured {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.card--featured__thumb {
+    grid-column: 2 / 4;
+}
+
+.list {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: subgrid;
+    /* Align grid items along the row axis. Values:
+     * start
+     * end
+     * center
+     * stretch
+     * */
+    justify-items: end;
+    /* Align grid items along the column axis. Values: 
+     * start
+     * end
+     * center
+     * stretch
+     * */
+    align-items: end;
+    height: 60px;
+}
+
+.grid-auto-fill {
+    display: grid;
+    /**
+     * the way CSS Grid will cause overflow in the row.
+     * The columns will not wrap into new rows if the 
+     * viewport width is too narrow
+     */
+    grid-template-columns: repeat(12, minmax(100px, 1fr));
+
+    /**
+     * 
+     */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+
+.grid-auto-fit {
+    display: grid;
+    /**
+     * the way CSS Grid will cause overflow in the row.
+     * The columns will not wrap into new rows if the 
+     * viewport width is too narrow
+     */
+    grid-template-columns: repeat(12, minmax(100px, 1fr));
+    /**
+     * 
+     */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.grid-auto-size-item {
+    background-color: pink;
+    height: 40px;
+}
