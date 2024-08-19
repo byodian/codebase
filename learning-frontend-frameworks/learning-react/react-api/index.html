@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Playground</title>
+  
+  <!-- 引入 React 和 ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <!-- 引入 Babel，用于在浏览器中编译 JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <pre id="server-render"></pre>
+
+  <!-- 编写 React 代码 -->
+  <script type="text/babel">
+
+    // New function components will no longer need forwardRef in React 19.
+    const MyInput = React.forwardRef(function(props, ref) {
+      const { label, ...otherProps } = props;
+
+      return (
+        <label>
+          {label}
+          <input {...otherProps} ref={ref} />
+        </label>
+      )
+    })
+
+    function Form() {
+      const ref = React.useRef(null);
+
+      function handleClick() {
+        ref.current.focus();
+      }
+
+      return (
+        <form>
+          <MyInput label="Enter your name:" ref={ref} />
+          <button type="button" onClick={handleClick}>
+            Edit
+          </button>
+        </form>
+      )
+
+    }
+
+    function App() {
+      return (
+        <div>
+          <h1>Hello, React!</h1>
+          <p>This is a simple React app running directly from index.html.</p>
+          <Form />
+        </div>
+      );
+    }
+
+    // 客户端渲染 
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+  <script type="module">
+    import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+    const markdownStr = '# Marked in the browser\n\nRendered by **marked**.';
+    console.log(markdownStr);
+    console.log(marked.parse(markdownStr))
+  </script>
+</body>
+</html>
