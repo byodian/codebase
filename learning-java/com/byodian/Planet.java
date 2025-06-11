@@ -1,5 +1,8 @@
 package com.byodian;
 
+import com.byodian.class_objects.Bicycle;
+import com.byodian.class_objects.MountainBike;
+
 public enum Planet {
   MERCURY (3.303e+23, 2.4397e6),
   VENUS   (4.869e+24, 6.0518e6),
