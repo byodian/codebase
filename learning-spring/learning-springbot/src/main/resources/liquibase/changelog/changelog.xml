@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    
+    <changeSet author="byodian6 (generated)" id="1749635932799-2">
+        <createTable remarks="comment" tableName="base_report_header">
+            <column autoIncrement="true" name="id" remarks="comment" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="node_code" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meter_type" remarks="comment" type="TINYINT"/>
+            <column name="installation_necessity" remarks="comment" type="TINYINT"/>
+            <column defaultValueNumeric="0" name="order_index" remarks="comment" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" remarks="comment" type="${datetimeType}"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" remarks="comment" type="${datetimeType}"/>
+            <column name="report_type" remarks="comment" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="device_id" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="station_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="calculate_method" remarks="comment" type="TINYINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-3">
+        <createTable remarks="comment" tableName="daily_report_header">
+            <column autoIncrement="true" name="id" remarks="comment" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="node_code" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="comment" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" remarks="comment" type="${datetimeType}"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" remarks="comment" type="${datetimeType}"/>
+            <column name="report_type" remarks="comment" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="TINYINT"/>
+            <column name="station_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="formula_id" remarks="comment" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_index" remarks="comment" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-4">
+        <createTable remarks="comment" tableName="daily_report_header_base">
+            <column autoIncrement="true" name="id" remarks="comment" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="node_code" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="comment" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" remarks="comment" type="${datetimeType}"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" remarks="comment" type="${datetimeType}"/>
+            <column name="report_type" remarks="comment" type="TINYINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" remarks="comment" type="TINYINT"/>
+            <column name="order_index" remarks="comment" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-5">
+        <createTable remarks="comment" tableName="department">
+            <column autoIncrement="true" name="id" remarks="comment" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="dept_code" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dept_name" remarks="comment" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" remarks="comment" type="${datetimeType}"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" remarks="comment" type="${datetimeType}"/>
+            <column name="node_type" remarks="comment" type="TINYINT"/>
+            <column name="parent_dept_code" remarks="comment" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-6">
+        <createTable remarks="comment" tableName="formula">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="" name="code" remarks="comment" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="comment" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="output_var" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1.0000" name="multiplier" remarks="comment" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" remarks="comment" type="${datetimeType}"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" remarks="comment" type="${datetimeType}"/>
+            <column name="report_type" remarks="comment" type="TINYINT"/>
+            <column name="station_id" remarks="comment" type="BIGINT"/>
+            <column name="node_code" remarks="comment" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-7">
+        <createTable remarks="comment" tableName="formula_base">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="" name="code" remarks="comment" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="comment" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="output_var" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1.0000" name="multiplier" remarks="comment" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" remarks="comment" type="${datetimeType}"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" remarks="comment" type="${datetimeType}"/>
+            <column name="report_type" remarks="comment" type="TINYINT"/>
+            <column name="node_code" remarks="comment" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-8">
+        <createTable remarks="comment" tableName="formula_device">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="device_id" remarks="comment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="factor" remarks="comment" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="optional" remarks="comment" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="order_index" remarks="comment" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="formula_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+     
+  
+    <changeSet author="byodian6 (generated)" id="1749635932799-26">
+        <addUniqueConstraint columnNames="node_code, report_type, station_id" constraintName="uq_code_rt_st" tableName="daily_report_header"/>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-27">
+        <addUniqueConstraint columnNames="dept_code" constraintName="uq_dept_code" tableName="department"/>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-28">
+        <addUniqueConstraint columnNames="node_code, report_type" constraintName="uq_dept_code_report_type" tableName="daily_report_header_base"/>
+    </changeSet>
+    
+    <changeSet author="byodian6 (generated)" id="1749635932799-30">
+        <addUniqueConstraint columnNames="device_id, report_type" constraintName="uq_dn_tsd" tableName="base_report_header"/>
+    </changeSet>
+     
+    <changeSet author="byodian6 (generated)" id="1749635932799-43">
+        <createIndex indexName="idx_code_f" tableName="formula">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="byodian6 (generated)" id="1749635932799-44">
+        <createIndex indexName="idx_code_fb" tableName="formula_base">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    
+    <changeSet author="byodian6 (generated)" id="1749635932799-46">
+        <createIndex indexName="idx_formula_id" tableName="formula_device">
+            <column name="formula_id"/>
+        </createIndex>
+    </changeSet>
+    
+    <changeSet author="byodian6 (generated)" id="1749635932799-48">
+        <createIndex indexName="idx_node_code" tableName="base_report_header">
+            <column name="node_code"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
