@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_department_sequence
+      author: byodian
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            sequenceExists:
+              sequenceName: pri_seq
+      changes:
+        - createSequence:
+            sequenceName: pri_seq
+            startValue: 1
+            incrementBy: 1
+
+  - changeSet:
+      id: create_department_table
+      author: byodian
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: department
+      changes:
+        - createTable:
+            tableName: department
+            columns:
+              - column:
+                  name: department_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: department_name
+                  type: varchar(255)
+              - column:
+                  name: department_address 
+                  type: varchar(255)
+              - column:
+                  name: department_code
+                  type: varchar(50)
+

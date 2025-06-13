@@ -21,4 +21,5 @@
 
 
     <include file="liquibase/changelog/changelog.xml" />
+    <include file="liquibase/changelog/creating_department.yaml" />
 </databaseChangeLog>
