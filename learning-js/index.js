@@ -38,5 +38,11 @@ function render() {
     app.appendChild(p)
   }
 }
+const btn = document.querySelector('.btn');
+btn.onclick = handleClick;
+function handleClick(e) {
+  console.log(e)
+  console.log('Button clicked!');
+}
 
 render()
